@@ -1,0 +1,540 @@
+/*
+	ELEMENTS.CSS - HERE I TRY TO KEEP ALL INDIVIDUALLY
+	STYLED ELEMENTS, IDs CLASSES ETC...
+*/
+
+
+/*	HEADER
+------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*	LOGO
+--------------------------------------------------------------------------------------*/
+#logo{}
+#logo > .box > h1{
+    color:rgba(0,0,0,0);
+    font-size: 0px;
+    border:0;
+    background-image: url(../images/logo100.png);
+    background-size: cover;
+    padding-bottom: 59.52380952380952%;
+    width:120px;
+    cursor: pointer;
+}
+
+/*	LOGIN
+--------------------------------------------------------------------------------------*/
+#login{
+    float:right;
+}
+#login > .box > form{
+    background-color: #fff;
+    border-radius: 10px;
+    xoverflow: hidden;
+}
+#login > .box > form > fieldset{
+    float:left;
+    width:200px;
+}
+#login > .box > form > fieldset > input{
+    float:left;
+    xborder-radius: 0;
+    margin: 0;
+    -webkit-transition: width 0.2s ease-in-out;
+    -moz-transition: width 0.2s ease-in-out;
+    -ms-transition: width 0.2s ease-in-out;
+    -o-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+}
+#login > .box > form > fieldset > input[name='username']{
+    width:80%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#login > .box > form > fieldset > input[name='password']{
+    width:20%;
+    border-left: 1px solid #aaa;
+    border-top-left-radius: 10px;
+}
+#login > .box > form > fieldset.password > input[name='username']{
+    width:20%;
+}
+#login > .box > form > fieldset.password > input[name='password']{
+    width:80%;
+}
+#login > .box > form > button{
+    margin:-3px 0;
+    height:46px;
+    x-webkit-box-shadow: -5px 0px 20px -5px rgba(0,0,0,0.9);
+    x-moz-box-shadow: -5px 0px 20px -5px rgba(0,0,0,0.9);
+    xbox-shadow: -5px 0px 20px -5px rgba(0,0,0,0.9);
+}
+#login > .box > button{
+    display: block;
+    float:left;
+    width:50%;
+    background: 0;
+    text-decoration: underline;
+}
+
+/*	LOGOUT
+--------------------------------------------------------------------------------------*/
+#logout{
+    float:right;
+}
+#logout > .box{
+    padding:20px 0;
+}
+#logout > .box > *{
+    display: inline-block;
+}
+#logout > .box > div{
+    color:#fff;
+    font-size: 0.75em;
+}
+#logout > .box > form > button{
+    margin:0 0 0 10px;
+}
+
+/*	MAINMENU
+--------------------------------------------------------------------------------------*/
+#mainmenu{
+    position:fixed;
+    padding:20px;
+    left:0px;
+    bottom: 100%;
+    width:100%;
+    margin-bottom: -5px;
+    border-bottom:5px solid #004080;
+    background-color: rgba(0,64,128,0.9);
+    -webkit-transition: margin 0.5s ease-in-out;
+    -moz-transition: margin 0.5s ease-in-out;
+    -ms-transition: margin 0.5s ease-in-out;
+    -o-transition: margin 0.5s ease-in-out;
+    transition: margin 0.5s ease-in-out;
+    z-index: 100;
+}
+#mainmenu.open{
+    margin-bottom: 0px;
+}
+#mainmenu > button{
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin:0 0 0 -30px;
+    border-radius: 0 0 10px 10px;
+    width:60px;
+    height:40px;
+    background: #004080 url(../images/menu-open.png) no-repeat center;
+    -webkit-transition: background-image 0.5s ease-in-out;
+    -moz-transition: background-image 0.5s ease-in-out;
+    -ms-transition: background-image 0.5s ease-in-out;
+    -o-transition: background-image 0.5s ease-in-out;
+    transition: background-image 0.5s ease-in-out;
+}
+#mainmenu.open > button{
+    background: #004080 url(../images/menu-close.png) no-repeat center;
+}
+#mainmenu ul{
+    list-style: none;
+}
+#mainmenu > ul{
+    text-align: center;
+}
+#mainmenu > ul > li{
+    display: inline-block;
+    padding:5px;
+}
+#mainmenu > ul > li > button{
+    font-size: 1em;
+    padding:0 30px;
+    height:60px;
+    line-height:60px; 
+}
+#mainmenu > ul > li:nth-child(1) > button{
+    background-color: #b33636;
+}
+#mainmenu > ul > li:nth-child(2) > button{
+    background-color: #b37436;
+}
+#mainmenu > ul > li:nth-child(3) > button{
+    background-color: #b3b236;
+}
+#mainmenu > ul > li:nth-child(4) > button{
+    background-color: #75b336;
+}
+#mainmenu > ul ul{
+    display: none;
+}
+
+/*	NEW USER
+--------------------------------------------------------------------------------------*/
+#newuser{
+    padding:0;
+}
+#newuser > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #80d4ff;
+    border:0;
+    padding:0 0 0 10px;
+}
+#newuser > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+#newuser > .box > form{
+    padding:10px;
+}
+#newuser > .box > form > .g-recaptcha{
+    width:256px;
+    height:60px;
+    overflow: hidden;
+}
+
+/*	FORGOT PASSWORD
+--------------------------------------------------------------------------------------*/
+#forgotpass{
+    padding:0;
+}
+#forgotpass > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #80d4ff;
+    border:0;
+    padding:0 0 0 10px;
+}
+#forgotpass > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+#forgotpass > .box > form{
+    padding:10px;
+}
+
+/*	MAIN
+------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*	PAGE TITLE
+--------------------------------------------------------------------------------------*/
+#pagetitle{
+    border:0;
+    height:60px;
+    line-height: 60px;
+    padding: 0 10px;
+    color: #fff;
+    margin:0;
+}
+#pagetitle button{
+    float:right;
+    margin:10px 0 10px 10px;
+}
+.messages #pagetitle{
+    background-color: #b33636;
+}
+.scenes #pagetitle{
+    background-color: #b37436;
+}
+.groups #pagetitle{
+    background-color: #b3b236;
+}
+.forum #pagetitle{
+    background-color: #75b336;
+}
+
+
+
+/*	MESSAGES
+------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*	UNREAD MESSAGES
+--------------------------------------------------------------------------------------*/
+.unreadmessages{
+    position:absolute;
+    left:-12px;
+    top:3px;
+}
+.unreadmessages > span{
+    display: block;
+    border-radius:10px;
+    width:20px;
+    height:20px;
+    color:#fff;
+    background-color: #b33636;
+    line-height: 20px;
+    text-align: center;
+}
+
+/*	MY MESSAGES
+--------------------------------------------------------------------------------------*/
+#mymessages{}
+#mymessages .read{
+    display: block;
+    width:15px;
+    height:15px;
+    background: url(../images/read.png) no-repeat center;
+}
+#mymessages .unread{
+    display: block;
+    width:15px;
+    height:15px;
+    background: url(../images/unread.png) no-repeat center;
+}
+
+
+/*	NEW MESSAGE
+--------------------------------------------------------------------------------------*/
+.newmessage{
+    padding:0;
+}
+.newmessage > .box{
+}
+.newmessage > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #b37474;
+    border:0;
+    padding:0 0 0 10px;
+}
+.newmessage > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+.newmessage > .box > form{
+    padding:10px;
+}
+.newmessage > .box > form .newmessage_results{
+    margin:0 -10px 10px -10px;
+}
+.newmessage > .box > form .newmessage_recipients{
+    padding:0 0 10px 0;
+}
+
+/*	NEW GROUP MESSAGE
+--------------------------------------------------------------------------------------*/
+.newgroupmessage{
+    padding:0;
+}
+.newgroupmessage > .box{
+}
+.newgroupmessage > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #b37474;
+    border:0;
+    padding:0 0 0 10px;
+}
+.newgroupmessage > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+.newgroupmessage > .box > form{
+    padding:10px;
+}
+
+
+
+/*	MESSAGE
+--------------------------------------------------------------------------------------*/
+.message{
+    padding:0;
+}
+.message > .box{
+    color:#000;
+    padding:10px;
+}
+.message > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    padding:0;
+    margin:0;
+    color:#000;
+}
+.message > .box > .details{
+    background-color: #d9d9d9;
+    padding: 5px 10px;
+    margin:0 -10px 10px -10px;
+}
+.message > .box > .details > div{
+    float:left;
+    width: 50%;
+}
+.message > .box > pre{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin:0 0 5px 0;
+    white-space: pre-wrap; 
+
+}
+.message > .box > .scene_list{
+    margin:0 -5px;
+}
+
+
+/*	GROUPS
+------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*	FIND GROUPS
+--------------------------------------------------------------------------------------*/
+.findgroups{
+    padding:0;
+}
+.findgroups > .box{}
+.findgroups > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #b3b374;
+    border:0;
+    padding:0 0 0 10px;
+}
+.findgroups > .box > form{
+    padding:10px;
+}
+
+/*	NEW GROUP
+--------------------------------------------------------------------------------------*/
+.newgroup{
+    padding:0;
+}
+.newgroup > .box{}
+.newgroup > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #b3b374;
+    border:0;
+    padding:0 0 0 10px;
+}
+.newgroup > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+.newgroup > .box > form{
+    padding:10px;
+}
+
+
+/*	FORUM
+------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*	NEW CATEGORY
+--------------------------------------------------------------------------------------*/
+.newcategory{
+    padding:0;
+}
+.newcategory > .box{}
+.newcategory > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #93b374;
+    border:0;
+    padding:0 0 0 10px;
+}
+.newcategory > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+.newcategory > .box > form{
+    padding:10px;
+}
+
+/*	NEW THREAD
+--------------------------------------------------------------------------------------*/
+.newthread{
+    padding:0;
+}
+.newthread > .box{}
+.newthread > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #93b374;
+    border:0;
+    padding:0 0 0 10px;
+}
+.newthread > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+.newthread > .box > form{
+    padding:10px;
+}
+
+
+/*	NEW POST
+--------------------------------------------------------------------------------------*/
+.newpost{
+    padding:0;
+}
+.newpost > .box{}
+.newpost > .box > h2{
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    background-color: #93b374;
+    border:0;
+    padding:0 0 0 10px;
+}
+.newpost > .box > h2 button{
+    float:right;
+    margin:10px 10px 10px 0;
+}
+.newpost > .box > form{
+    padding:10px;
+}
+.newpost > .box > form > button{
+    margin:10px 0 0 0;
+}
+
+/*	POST
+--------------------------------------------------------------------------------------*/
+.post{
+    padding:0;
+}
+.post > .box{
+    color:#000;
+    padding:10px;
+}
+.post > .box > h3{
+    height: 60px;
+    line-height: 60px;
+    padding:0;
+    margin:0;
+    color:#000;
+}
+.post > .box > .details{
+    background-color: #d9d9d9;
+    padding: 5px 10px;
+    margin:0 0 10px 0;
+}
+.post > .box > .details > div{
+    float:left;
+    width: 50%;
+}
+.post > .box > pre{
+    background-color: #fff;
+    border-radius: 10px;
+    margin:0 0 5px 0;
+    white-space: pre-wrap; 
+
+}
+.post > .box > .scene_list{
+    margin:0 -5px;
+}
+
+
+/*	FOOTER
+------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*	COPYRIGHT
+--------------------------------------------------------------------------------------*/
+
+.copyright {
+    color:#fff;
+}

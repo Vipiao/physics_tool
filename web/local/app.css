@@ -1,0 +1,46 @@
+/*
+    Layout adjustments for the standalone build.
+
+    The original stylesheets size the simulator panel by aspect ratio, which
+    assumes it sits in a scrolling page next to other content. Here the
+    simulator is the whole page, so the panel fills whatever is left between the
+    header and the footer.
+*/
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+main#main {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 0;
+}
+
+main#main > .page,
+main#main > .page > .ghost {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 0;
+    width: 100%;
+}
+
+main#main .panel {
+    flex: 1 1 auto;
+    padding-bottom: 0;
+    min-height: 320px;
+}
+
+/* The property popup opens at the click point and can be taller than what is
+   left below it. */
+.contextual {
+    max-height: 60vh;
+    overflow-y: auto;
+}

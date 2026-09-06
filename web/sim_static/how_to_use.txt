@@ -1,0 +1,345 @@
+﻿
+Changelog:
+	v0:
+	v1:
+		Ropes added.
+	v2:
+		Custom shapes added.
+		Fixed constraint tool.
+		Delete polygons tool.
+	v3:
+		Depricated GEAR_... enums.
+		Read/write tool properties.
+			New tool selection mode.
+			New callback methods.
+		New mode toggle static.
+		New property for polygons: "isStatic".
+		Pulleys.
+	v4.
+		Polygon draw mode can create polygons that are initially static or dynamic.
+		Moving tool.
+	v5.
+		Show forces mode.
+	v6.
+		Pausing modes added.
+	v7.
+		Save and load added.
+		Mouse position added in all callbacks.
+	v8.
+		DynamicFrictionConstant, staticFrictionConstant and bounceFactor added to polygon properties.
+		Polygon drawing now has snapping options.
+	v9.
+		Delete field added to polygons and tool callbacks.
+	v10.
+		Screenshot.
+	v11.
+		setPolygonDrawStaticMode renamed to setPolygonDrawMode.
+	v12.
+		Added friction to fixed hinge properties.
+
+Initialization:
+	var physicsSimulator = new PhysicsSimulator(HTMLCanvas);
+Screenshot of scene:
+	// width is 320 by default, height is 200 by default.
+	physicsSimulator.getScreenshot(width, height);
+Pausing modes:
+	Pause:
+		// This mode will make all physics pause.
+		physicsSimulator.setPause(someBoolean);
+		physicsSimulator.getPause();
+	Pause physics:
+		// This mode will make all momentum based physics pause.
+		physicsSimulator.setPausePhysics(someBoolean);
+		physicsSimulator.getPausePhysics();
+	Example:
+		// To set status:
+		physicsSimulator.setPausePhysics(true);
+		// To get status:
+		physicsSimulator.getPausePhysics();
+		// The line above will return true.
+
+		// To set status:
+		physicsSimulator.setPause(false);
+		// To get status:
+		physicsSimulator.getPause();
+		// The line above will return false.
+Set mode using enums:
+		physicsSimulator.setMode(mode);
+	Possible modes:
+		PhysicsSimulator.DEFAULT;
+		PhysicsSimulator.MOVE_TOOL;
+		PhysicsSimulator.BOX_SPAWNER;
+		PhysicsSimulator.POLYGON_DRAW;
+		PhysicsSimulator.READ_PROPERTIES;
+		PhysicsSimulator.HINGES;
+		PhysicsSimulator.FIXED_CONSTRAINT;
+		PhysicsSimulator.ROPES;
+		PhysicsSimulator.DELETE_POLYGONS;
+		PhysicsSimulator.SELECT_TOOLS;
+		PhysicsSimulator.TOGGLE_STATIC;
+		PhysicsSimulator.SHOW_FORCES;
+		PhysicsSimulator.PULLEYS;
+	Example:
+		physicsSimulator.setMode(PhysicsSimulator.BOX_SPAWNER);
+Set default mode:
+	physicsSimulator.setModeDefault();
+Set move tool mode:
+	physicsSimulator.setModeMoveTool();
+Set box spawning mode:
+	physicsSimulator.setSpawnBoxMode();
+Set polygon drawing mode:
+		physicsSimulator.setModePolygonDraw();
+	Drawin modes:
+		Set static mode:
+			physicsSimulator.setPolygonDrawMode(PhysicsSimulator.POLYGON_DRAW_STATIC);
+		Set dynamic mode:
+			physicsSimulator.setPolygonDrawMode(PhysicsSimulator.POLYGON_DRAW_DYNAMIC);
+		Get polygon draw mode:
+			physicsSimulator.getPolygonDrawMode();
+	Set snapping mode:
+			physicsSimulator.setSnapMode(snapMode);
+		Possible modes:
+			PhysicsSimulator.SNAP_DEFAULT;
+			PhysicsSimulator.SNAP_TO_POLAR;
+			PhysicsSimulator.SNAP_TO_CARTESIAN;
+	Get snapping mode:
+		physicsSimulator.getSnapMode();
+	Set up polygon drawing callback:
+			// This function will recieve data about the last segment as it's first argument.
+			physicsSimulator.addPolygonDrawDataCallback(callback);
+		Data format:
+			{
+				"angle": angle, // Angle relative to positive x-axis.
+				"magnitude": magnitude, // Length of last segment.
+			}
+	Example:
+		physicsSimulator.setModePolygonDraw();
+		physicsSimulator.setSnapMode(PhysicsSimulator.SNAP_TO_POLAR);
+		physicsSimulator.getSnapMode();
+		// Log: "SNAP_TO_POLAR".
+		physicsSimulator.addPolygonDrawDataCallback(function (d){
+			console.log(d);
+		});
+		// *Moves cursor*.
+		// Log: {angle: 0.3490658503988659, magnitude: 10.000000000000002}.
+Set create hinges mode:
+	physicsSimulator.setModeCreateHinges();
+Set create fixed hinges mode:
+	physicsSimulator.setModeCreateFixedConstraint();
+Set create ropes mode:
+	physicsSimulator.setModeCreateRopes();
+Set delete polygons mode:
+	physicsSimulator.setModeDeletePolygons();
+Set select tools mode:
+	physicsSimulator.setModeSelectTools();
+Set toggle static mode:
+	physicsSimulator.setModeToggleStatic();
+Set show forces mode:
+	physicsSimulator.setModeShowForces();
+Set create pulleys mode:
+	physicsSimulator.setModeCreatePulleys();
+Custom shapes:
+	Set custom shapes spawning mode:
+		physicsSimulator.setModeCustomShapeSpawner();
+	Set what the custom shape should be:
+		physicsSimulator.setCustomShape(someShape);
+	Get shape:
+		physicsSimulator.getCustomShape();
+	Possible shapes:
+		PhysicsSimulator.SQUARE;
+		PhysicsSimulator.DISC;
+		PhysicsSimulator.GEAR;
+	Set properties of shapes:
+		Square:
+			Set size:
+				physicsSimulator.setSquareSize(someSize);
+			Get size:
+				physicsSimulator.getSquareSize();
+		Disc:
+			Set size:
+				physicsSimulator.setDiscSize(someSize);
+			Get size:
+				physicsSimulator.getDiscSize();
+			Set resolution:
+				// "someResolution" is 3 or larger and 200 or less.
+				physicsSimulator.setDiscResolution(someResolution);
+			Get resolution:
+				physicsSimulator.getDiscResolution();
+		Gear:
+			Set size:
+				physicsSimulator.setGearcSize(someSize);
+			Get size:
+				physicsSimulator.getGearSize();
+			Set resolution:
+				// "someResolution" is 2 or larger and 100 or less.
+				physicsSimulator.setGearResolution(someResolution);
+			Get resolution:
+				physicsSimulator.getGearResolution();
+		Set placement mode:
+				physicsSimulator.setPlacementMode(someMode);
+			Modes:
+				PhysicsSimulator.DEFAULT_PLACEMENT;
+				PhysicsSimulator.HINGE_TO_POLYGON;
+				PhysicsSimulator.FIX_TO_BACKGROUND;
+	Example:
+		Creating a gear:
+			physicsSimulator.setModeCustomShapeSpawner();
+			// Could also use: physicsSimulator.setMode(PhysicsSimulator.CUSTOM_SHAPE_SPAWNER);
+			physicsSimulator.setCustomShape(PhysicsSimulator.GEAR);
+			physicsSimulator.setGearSize(2); // Maximum radius is 2.
+			physicsSimulator.setGearResolution(8); // Number of spikes is 8.
+			console.log(physicsSimulator.getGearResolution());
+			// Log: 8.
+			// *Clicks*. *Gear with radius 2 and 8 spikes spawns*.
+			physicsSimulator.setGearPlacementMode(PhysicsSimulator.GEAR_HINGE_TO_POLYGON);
+			// *Clicks polygon*. *Gear is attached to polygon*.
+			physicsSimulator.setGearPlacementMode(PhysicsSimulator.GEAR_FIX_TO_BACKGROUND);
+			// *Clicks*. *Gear is attached to background*.
+			console.log(physicsSimulator.getGearPlacementMode() == PhysicsSimulator.GEAR_FIX_TO_BACKGROUND);
+			// Log: true.
+			
+Read/write polygon properties:
+	First set up callback functions:
+		physicsSimulator.addReadPropertiesCallback(someFunction);
+	Set mode for reading properties:
+			physicsSimulator.setModeReadPolygonProperties();
+		Alternatively:
+			physicsSimulator.setMode(PhysicsSimulator.READ_PROPERTIES)
+	
+	Now, if you click on an object in the physicsSimulator, the properties of that object will be sent to the callback function as the first argument.
+	Set the properties for a polygon. This function will return whether the polygon with the id exists or not. If polygon was found, the function will not set any properties.
+		physicsSimulator.setPolygonProperties(propertiesToGivePolygon);
+	Format of properties:
+		properties = {
+			"mouseX": mouseX,
+			"mouseY": mouseY,
+			"id": id,
+			"positionX": positionX,
+			"positionY": positionY,
+			"velocityX": velocityX,
+			"velocityY": velocityY,
+			"orientation": orientation,
+			"angularVelocity": angularVelocity,
+			"density": density,
+			"mass": mass,
+			"isFixed": isFixed,
+			"dynamicFrictionConstant": dynamicFrictionConstant,
+			"staticFrictionConstant": staticFrictionConstant,
+			"bounceFactor": bounceFactor,
+			"delete": delete,
+		};
+	Example:
+		Read:
+			physicsSimulator.addReadPropertiesCallback(function(properties){
+				console.log(properties);
+			});
+			physicsSimulator.setModeReadPolygonProperties();
+			// Alternatively: physicsSimulator.setMode(PhysicsSimulator.READ_PROPERTIES);
+			// Clicks object.
+			// console log: {id: 1, positionX: 0, positionY: -6386, velocityX: 0, velocityY: 0, …}
+		Write:
+			// "properties" is of the same format as the properties given as argument in the function passed to addReadPropertiesCallback() above. Some properties can be missing, if so they will be ignored. "id" cannot be missing.
+			physicsSimulator.setPolygonProperties(properties);
+
+			// To delete polygon, set the delete flat to true.
+			properties.delete = true;
+			physicsSimulator.setPolygonProperties(properties);
+Read/write tool properties:
+	First set up callback functions:
+		Rope callbacks:
+			physicsSimulator.addReadRopesCallback(someFunction);
+		Hinge callbacks:
+			physicsSimulator.addReadHingesCallback(someFunction);
+		Fixed constraint callbacks:
+			physicsSimulator.addReadFixedCallback(someFunction);
+		Pulley callbacks:
+			physicsSimulator.addReadPulleysCallback(someFunction);
+	Set tool selection mode:
+			physicsSimulator.setModeSelectTools();
+		Alternatively:
+			physicsSimulator.setMode(PhysicsSimulator.SELECT_TOOLS);
+	Format of properties:
+		Rope:
+			properties = {
+				"mouseX": mouseX,
+				"mouseY": mouseY,
+				"id": id,
+				"length": lengthOfRope, // Length must be 0 or positive.
+				"delete": delete,
+			};
+		Hinge:
+			properties = {
+				"mouseX": mouseX,
+				"mouseY": mouseY,
+				"id": id,
+				"friction": friction, // Friction must be in between 0 and 1 inclusively
+				"delete": delete,
+			};
+		Fixed constraint:
+			properties = {
+				"mouseX": mouseX,
+				"mouseY": mouseY,
+				"id":id,
+				"positionX": positionXCoordinates,
+				"positionY": positionYCoordinates,
+				"velocityX": velocityXCoordinates,
+				"velocityY": velocityYCoordinates,
+				"friction": friction,
+				"delete": delete,
+			};
+		Pulley:
+			properties = {
+				"mouseX": mouseX,
+				"mouseY": mouseY,
+				"id": id,
+				"delete": delete,
+			};
+	Change properties of tool.
+		Ropes:
+			physicsSimulator.setRopeProperties(properties);
+		Hinges:
+			physicsSimulator.setHingeProperties(properties);
+		Fixed constraints:
+			physicsSimulator.setFixedProperties(properties);
+		Pulleys:
+			physicsSimulator.setPulleyProperties(properties);
+		If the id of the tool was not found in the properties, the functions above will return false. Otherwise true will be returned.
+	Examples:
+		Read data from hinge:
+			// Set callback for hinge.
+			physicsSimulator.addReadHingesCallback(function(p){
+				console.log(p)
+			})
+			// Set tool selection mode.
+			physicsSimulator.setModeSelectTools();
+			// ... or physicsSimulator.setMode(PhysicsSimulator.SELECT_TOOLS);
+			// *Click hinge*. *Properties of hinge is printed out.*
+		Write data to hinge:
+			physicsSimulator.addReadHingesCallback(function(p){
+				window.test = p;
+			});
+			physicsSimulator.setModeSelectTools();
+			// ... or physicsSimulator.setMode(PhysicsSimulator.SELECT_TOOLS);
+			// *Clicks hinge*.
+			window.test.friction = 1;
+			physicsSimulator.setHingeProperties(test);
+			// Hinge now has a friction of 1.
+Save and load:
+	To save the state of the simulation:
+		var dataInStringFormat = physicsSimulator.save();
+	To load the state of the simulation:
+		physicsSimulator.load(dataInStringFormat);
+	Example:
+		var s = physicsSimulator.save();
+		// *Time passes*.
+		physicsSimulator.load(s);
+		// *Previous state is restored.*
+
+
+
+
+
+
+
+
+
