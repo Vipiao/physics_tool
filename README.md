@@ -4,10 +4,13 @@
 
 **Live demo: [fjellheim.org/markus/game/fysim](https://fjellheim.org/markus/game/fysim/)**
 
-A 2D rigid-body physics engine and simulation tool, written from scratch in
-JavaScript and WebGL. Built January-May 2018 as a bachelor thesis at the
-University of Stavanger: *Simulating Classical Mechanics on a Web Platform*
-(`docs/`).
+A physics simulation tool. 2D rigid bodies, polygons (concave/convex/holes),
+pulleys, hinges, gears, ropes. Force visualizations showing normal forces and
+friction forces. Resting force stabilization allowing stacks of objects.
+
+Written from scratch in JavaScript and WebGL. Built January-May 2018 as a
+bachelor thesis at the University of Stavanger: *Simulating Classical Mechanics
+on a Web Platform* (`docs/`).
 
 The thesis was done with a classmate: they built the web platform, I built the
 physics simulator. Their front-end is still here, because the tool runs inside
