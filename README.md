@@ -1,5 +1,9 @@
 # FySim
 
+**Video: [youtu.be/deLVRhReatQ](https://youtu.be/deLVRhReatQ)**
+
+**Live demo: [fjellheim.org/markus/game/fysim](https://fjellheim.org/markus/game/fysim/)**
+
 A 2D rigid-body physics engine and simulation tool, written from scratch in
 JavaScript and WebGL. Built January-May 2018 as a bachelor thesis at the
 University of Stavanger: *Simulating Classical Mechanics on a Web Platform*
