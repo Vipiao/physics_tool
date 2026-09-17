@@ -2,3 +2,7 @@ scenes.db
 fysim.zip
 __pycache__/
 *.pyc
+
+# Local Claude config (kept out of git)
+CLAUDE.md
+.claude/
